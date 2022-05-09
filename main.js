@@ -21,22 +21,22 @@ function activateMenuAtCurrentSection(section) {
   const targetLine = scrollY + innerHeight / 2 //Constante  (o valor nao pode ser alterado)
 
   // verificar se a seção passou da linha
-  // quias dados vou precisar?
+  // quais dados vou precisar?
   const sectionTop = section.offsetTop
-  const sectionHeigth = section.offsetHeigth
-  const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
+  const sectionHeight = section.offsetHeight
+  const sectionTopReachOrPassedTargetline = targetLine >= sectionTop
 
   // verificar se a base está abaixo da linha alvo
 
-  const sectionEndsAt = sectionTop + sectionHeigth
-  const sectionEndPassedTargetLine = sectionEndsAt <= targetLine
+  const sectionEndsAt = sectionTop + sectionHeight
+  const sectionEndPassedTargetline = sectionEndsAt <= targetLine
 
-  //limites da seção
-
-  const sectionBoundaries = sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine
+  // limites da seção
+  const sectionBoundaries =
+    sectionTopReachOrPassedTargetline && !sectionEndPassedTargetline
 
   const sectionId = section.getAttribute('id')
-  const menuElement = document.querySelector(`.menu a[hfer*=${sectionId}]`)
+  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
 
   menuElement.classList.remove('active')
   if (sectionBoundaries) {
